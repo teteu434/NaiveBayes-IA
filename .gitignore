@@ -1,0 +1,33 @@
+# Bytecode Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Imagens e arquivos gerados em runtime
+output/
+
+# Ambientes virtuais
+.venv/
+venv/
+env/
+.env/
+
+# Distribuição / empacotamento
+dist/
+build/
+*.egg-info/
+*.egg
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# IDEs
+.vscode/
+.idea/
+*.suo
+*.user
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
