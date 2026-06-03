@@ -3,9 +3,6 @@ __pycache__/
 *.py[cod]
 *.pyo
 
-# Imagens e arquivos gerados em runtime
-output/
-
 # Ambientes virtuais
 .venv/
 venv/

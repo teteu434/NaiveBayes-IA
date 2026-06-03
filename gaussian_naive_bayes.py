@@ -185,7 +185,20 @@ def run_part1(X: np.ndarray, y: np.ndarray, feature_names: list):
     print(f"\nAcuracia media (10 execucoes): {mean_acc:.4f}")
     print(f"Desvio padrao:                {std_acc:.4f}")
 
-    # ---- i) Matriz de confusao ----
+    # NOVO BLOCO
+    print("\nParametros aprendidos pelo modelo:")
+
+    for c in last_model.classes_:
+        print(f"\nClasse {c}")
+
+        for i, fname in enumerate(feature_names):
+            print(
+                f"  {fname:>6}: "
+                f"media={last_model.means_[c][i]:.5f} "
+                f"var={last_model.vars_[c][i]:.8f}"
+            )
+
+    # matriz de confusão
     y_pred_last = last_model.predict(last_X_test)
     cm = compute_confusion_matrix(last_y_test, y_pred_last, [0, 1])
     tn, fp, fn, tp = cm[0, 0], cm[0, 1], cm[1, 0], cm[1, 1]
@@ -305,7 +318,7 @@ def run_part3(
 
     diff = mean_acc - acc_all
     direction = "superior" if diff > 0 else "inferior" if diff < 0 else "igual"
-    print(f"\n  Diferenca: {diff:+.4f}  -> top-3 e {direction} ao modelo completo.")
+    print(f"\n  Diferenca: {diff:+.4f}  -> top-3 eh {direction} ao modelo completo.")
 
     plot_accuracy_comparison(
         [
